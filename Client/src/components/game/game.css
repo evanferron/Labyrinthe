@@ -1,0 +1,38 @@
+.wall{
+    background-color: grey;
+    width: 5vw;
+    height: 9vh;
+}
+
+.path{
+    background-color: white;
+    width: 5vw;
+    height: 9vh;
+
+}
+
+#start{
+    background-color: red;
+    width: 5vw;
+    height: 9vh;
+
+}
+
+#end{
+    background-color: green;
+    width: 5vw;
+    height: 9vh;
+
+}
+
+#labyrinth{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#labyrinth div{
+    display: flex;
+    
+}

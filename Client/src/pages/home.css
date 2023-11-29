@@ -7,9 +7,25 @@
 
 #game{
     border: red 3px solid;
-    width: 80vw;
-    height: 90%;
+    width: fit-content;
+    height: fit-content;
     align-self: center;
     justify-self: center;
     background-color: rgb(20,20,20);
+}
+
+#start-window-home{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#start-window-home div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#start-window-home div button{
+    font-size: 30px;
 }

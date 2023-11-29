@@ -26,6 +26,16 @@ class Utils{
         const expires = "expires=" + date.toUTCString();
         document.cookie = name + "=" + value + "; " + expires + "; path=/";
     }
+    
+    static GetStartCoo(lab){
+        for(let i = 0; i < lab.length;i++){
+            for (let y = 0; y < lab.length; y++) {
+                if(lab[i][y] == "S"){
+                    return [i,y]
+                }
+            }
+        }
+    }
 }
 
 export default Utils;
