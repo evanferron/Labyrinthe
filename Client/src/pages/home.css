@@ -1,0 +1,15 @@
+#main-container-home{
+    display: grid;
+    grid-template-rows: 8rem 1fr 5rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+#game{
+    border: red 3px solid;
+    width: 80vw;
+    height: 90%;
+    align-self: center;
+    justify-self: center;
+    background-color: rgb(20,20,20);
+}

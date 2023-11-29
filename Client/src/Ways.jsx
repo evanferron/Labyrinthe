@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/home'
-import LoginRegister from './pages/loginRegister'
+import Login from './pages/login'
+import Register from './pages/register'
 
 function Ways() {
 
@@ -9,7 +10,8 @@ function Ways() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/loginregister' element={<LoginRegister />}/>
+          <Route path='/login' element={<Login />}/>
+          <Route path='/register' element={<Register />}/>
         </Routes>
       </BrowserRouter>
     </>
