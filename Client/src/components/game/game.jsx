@@ -1,12 +1,14 @@
-import React from 'react';
+import React,{useState} from 'react';
+import { ResolveMaze } from '../../utils/maze';
 import "./game.css"
 
 const Game = ({map}) => {
+    const [showSolution,setShowSolution] = useState(false)
+    const mapSolution = ResolveMaze(map.current.map)
     const styleGame = {
-        width: map[0].lenght,
-        height: map.lenght
+        width: map.current.map[0].lenght,
+        height: map.current.map.lenght
     }
-
     const getLine = (line) =>{
         return (
             <div>
@@ -17,10 +19,10 @@ const Game = ({map}) => {
                         result = <div className="wall" key={index}></div>;
                         break
                     case 0 :
-                        result = <div id="path" key={index}></div>;
+                        result = <div className="path" key={index}></div>;
                         break
                     case 2:
-                        result = <div id="path" className="solution" key={index}></div>;
+                        result = <div className="solution" key={index}></div>;
                         break
                     case "A":
                         result = <div id="start" key={index}></div>;
@@ -28,8 +30,8 @@ const Game = ({map}) => {
                     case "B":
                         result = <div id="end" key={index}></div>;
                         break
-                    
                     default:
+                        console.log(unit)
                         alert("Error during the generation of the labyrinth")
                         break
                 }
@@ -40,16 +42,36 @@ const Game = ({map}) => {
     }
 
     return (
-        <div id="labyrinth" style={styleGame}>
-            {map.map((line,index) => {
-                return(
-                    <div key={index}>
+            <div>
+                {showSolution?
+                <div id="labyrinth" style={styleGame}>
+                    {mapSolution.map((line,index) => {
+                    return(
+                        <div key={index}>
                         {getLine(line)}
+                        </div>
+                        )
+                    })}
+                </div>
+                :
+                <div id="labyrinth" style={styleGame}>
+                {map.current.map.map((line,index) => {
+                    return(
+                        <div key={index}>
+                        {getLine(line)}
+                        </div>
+                        )
+                    })}
+                    <button onClick={()=>{
+                        setShowSolution(true)
+                        console.log("solution has been show")
+                    }} id="button-show-solution">show solution</button>
                     </div>
-                )
-            })}
-        </div>
-    );
+                }
+                </div>
+            )
+
+    
 };
 
 export default Game;

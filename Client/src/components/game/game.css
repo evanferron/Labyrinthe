@@ -4,11 +4,17 @@
     height: 9vh;
 }
 
-#path{
+.path{
     background-color: white;
     width: 5vw;
     height: 9vh;
 
+}
+
+.solution{
+    background-color: blue;
+    width: 5vw;
+    height: 9vh;
 }
 
 #start{

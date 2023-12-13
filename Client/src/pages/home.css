@@ -29,3 +29,15 @@
 #start-window-home div button{
     font-size: 30px;
 }
+
+#button-show-solution{
+    position: absolute;
+    width: 10rem;
+    grid-row: 3;
+    height: 2rem;
+    border: none;
+    background-color: blue;
+    color: aliceblue;
+    border-radius: 12px;
+    cursor: pointer;
+}

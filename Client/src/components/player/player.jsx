@@ -6,11 +6,13 @@ const Player = ({coo,map,playerCoo,setWin,setStartGame}) => {
     const speedH = 9
 
     const checkCell = (cooCell) => {
-        switch(map[cooCell[0]][cooCell[1]]){
+        switch(map.current.map[cooCell[0]][cooCell[1]]){
             case 0:
                 return true
             case 1:
                 return false
+            case 2:
+                return true    
             case "A":
                 return true
             case "B":
@@ -68,7 +70,7 @@ const Player = ({coo,map,playerCoo,setWin,setStartGame}) => {
 
 
     return (
-        <div id="player" style={coo.current.index}>
+        <div id="player" style={{top:coo.current.index.top,left:coo.current.index.left}}>
         </div>
     );
 };

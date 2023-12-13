@@ -6,42 +6,34 @@ import Utils from '../utils/utils';
 import "./home.css"
 
 const Home = () => {
-    const map = [[1, 1, 1, 1, 1, 1, 1, 1],
-                 [1, 0, 0, 1, 2, 2, 2, 1],
-                 [1, 2,"A", 1, "B", 1, 2, 1],
-                 [1, 2, 1, 1, 1, 1, 2, 1],
-                 [1, 2, 2, 2, 2, 2, 2, 1], 
-                 [1, 1, 0, 1, 1, 0, 1, 1], 
-                 [1, 0, 0, 0, 0, 0, 0, 1], 
-                 [1, 1, 1, 1, 1, 1, 1, 1]]
+    const map = useRef({map: [   [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ],
+                                 [ 1 , 0 ,"A", 1 , 0 , 0 , 0 , 1 ],
+                                 [ 1 , 0 , 0 , 1 , 0 , 1 , 0 , 1 ],
+                                 [ 1 , 0 , 1 , 1 , 1 , 1 , 0 , 1 ],
+                                 [ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 1 ],
+                                 [ 1 , 1 , 0 , 1 , 1 , 0 , 1 , 1 ],
+                                 [ 1 , 0 , 0 , 0 ,"B", 0 , 0 , 1 ],
+                                 [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ]   ]})
     const [startGame, setstartGame] = useState(false);
     const [win,setWin] = useState(false);
-    const playerCoo = useRef({index:{coo:Utils.GetStartCoo(map)}})
+    const playerCoo = useRef({index:{coo:Utils.GetStartCoo(map.current.map)}})
     const stylePlayer = useRef({
         index:{
         top : `${playerCoo.current.index.coo[0]*9 +20}vh`,
         left : `${playerCoo.current.index.coo[1]*5+32}vw`,
-        y:playerCoo.current.index.coo[1]*9+20,
-        x:playerCoo.current.index.coo[0]*5+32
+        y:playerCoo.current.index.coo[0]*9+20,
+        x:playerCoo.current.index.coo[1]*5+32
         }
     })
 
     const resetData =() =>{
-        playerCoo.current.index ={coo:Utils.GetStartCoo(map)}
+        playerCoo.current.index ={coo:Utils.GetStartCoo(map.current.map)}
         stylePlayer.current.index = {
             top : `${playerCoo.current.index.coo[0]*9 +20}vh`,
             left : `${playerCoo.current.index.coo[1]*5+32}vw`,
-            y:playerCoo.current.index.coo[1]*9+20,
-            x:playerCoo.current.index.coo[0]*5+32
+            y:playerCoo.current.index.coo[0]*9+20,
+            x:playerCoo.current.index.coo[1]*5+32
             }
-    }
-
-    const printSolution=()=>{
-        const path = document.getElementsByClassName("solution")
-        console.log(path)
-        for(let e of path){
-            e.style.backgroundColor = "blue";
-        }
     }
 
     const generateLevel= () => {
@@ -56,7 +48,7 @@ const Home = () => {
                 startGame?
                 <section id="game">
                 <Player coo={stylePlayer} map={map} playerCoo={playerCoo} setWin={setWin} setStartGame={setstartGame}></Player>
-                <Game map={map}></Game>              
+                <Game map={map}/>
                 </section>:
                 <section id="start-window-home">
                     <div>
@@ -79,7 +71,8 @@ const Home = () => {
                     </div>
                 </section>
             }
-            <button onClick={()=>printSolution()}>show solution</button>
+            <section>
+            </section>
         </div>
     );
 };
