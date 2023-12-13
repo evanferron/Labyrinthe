@@ -30,7 +30,7 @@ class Utils{
     static GetStartCoo(lab){
         for(let i = 0; i < lab.length;i++){
             for (let y = 0; y < lab.length; y++) {
-                if(lab[i][y] == "S"){
+                if(lab[i][y] == "A"){
                     return [i,y]
                 }
             }

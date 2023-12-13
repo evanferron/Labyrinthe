@@ -1,4 +1,6 @@
 import React from 'react';
+import "./loginRegister.css"
+
 
 const Login = () => {
 
@@ -7,6 +9,7 @@ const Login = () => {
 
         const email = e.target.email.value
         const password = e.target.password.value
+
 
         event.target.reset()
     }

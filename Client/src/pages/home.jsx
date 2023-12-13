@@ -7,10 +7,10 @@ import "./home.css"
 
 const Home = () => {
     const map = [[1, 1, 1, 1, 1, 1, 1, 1],
-                 [1, 0, 0, 1, 0, 0, 0, 1],
-                 [1, 0,"S", 1, "A", 1, 0, 1],
-                 [1, 0, 1, 1, 1, 1, 0, 1],
-                 [1, 0, 0, 0, 0, 0, 0, 1], 
+                 [1, 0, 0, 1, 2, 2, 2, 1],
+                 [1, 2,"A", 1, "B", 1, 2, 1],
+                 [1, 2, 1, 1, 1, 1, 2, 1],
+                 [1, 2, 2, 2, 2, 2, 2, 1], 
                  [1, 1, 0, 1, 1, 0, 1, 1], 
                  [1, 0, 0, 0, 0, 0, 0, 1], 
                  [1, 1, 1, 1, 1, 1, 1, 1]]
@@ -36,6 +36,13 @@ const Home = () => {
             }
     }
 
+    const printSolution=()=>{
+        const path = document.getElementsByClassName("solution")
+        console.log(path)
+        for(let e of path){
+            e.style.backgroundColor = "blue";
+        }
+    }
 
     const generateLevel= () => {
         // TO DO
@@ -72,6 +79,7 @@ const Home = () => {
                     </div>
                 </section>
             }
+            <button onClick={()=>printSolution()}>show solution</button>
         </div>
     );
 };

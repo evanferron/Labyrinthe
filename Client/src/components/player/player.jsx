@@ -11,9 +11,9 @@ const Player = ({coo,map,playerCoo,setWin,setStartGame}) => {
                 return true
             case 1:
                 return false
-            case "S":
-                return true
             case "A":
+                return true
+            case "B":
                 setWin(true)
                 setStartGame(false)
                 return true
@@ -28,26 +28,26 @@ const Player = ({coo,map,playerCoo,setWin,setStartGame}) => {
             console.log(event.key)
             console.log(playerCoo.current.index.coo)
             event.preventDefault();
-                switch(event.key){
-                    case "z":
+                switch(true){
+                    case event.key == "z" || event.keyCode == 38:
                         if(checkCell([playerCoo.current.index.coo[0]-1,playerCoo.current.index.coo[1]])){
                             coo.current.index.y = coo.current.index.y - speedH
                             playerCoo.current = {index:{coo:[playerCoo.current.index.coo[0]-1,playerCoo.current.index.coo[1]]}}
                         }
                         break
-                    case "s":
+                    case event.key == "s" || event.keyCode == 40:
                         if(checkCell([playerCoo.current.index.coo[0]+1,playerCoo.current.index.coo[1]])){
                             coo.current.index.y = coo.current.index.y + speedH
                             playerCoo.current = {index:{coo:[playerCoo.current.index.coo[0]+1,playerCoo.current.index.coo[1]]}}
                         }
                         break
-                    case "q":
+                    case event.key == "q"  || event.keyCode == 37:
                         if(checkCell([playerCoo.current.index.coo[0],playerCoo.current.index.coo[1]-1])){    
                             coo.current.index.x = coo.current.index.x - speedW
                             playerCoo.current = {index:{coo:[playerCoo.current.index.coo[0],playerCoo.current.index.coo[1]-1]}}
                         }
                         break
-                    case "d":
+                    case event.key == "d"  || event.keyCode == 39:
                         if(checkCell([playerCoo.current.index.coo[0],playerCoo.current.index.coo[1]+1])){
                             coo.current.index.x = coo.current.index.x + speedW
                             playerCoo.current = {index:{coo:[playerCoo.current.index.coo[0],playerCoo.current.index.coo[1]+1]}}
@@ -68,7 +68,7 @@ const Player = ({coo,map,playerCoo,setWin,setStartGame}) => {
 
 
     return (
-        <div id="player" style={coo}>
+        <div id="player" style={coo.current.index}>
         </div>
     );
 };

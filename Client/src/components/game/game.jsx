@@ -1,9 +1,6 @@
 import React from 'react';
 import "./game.css"
 
- 
-
-
 const Game = ({map}) => {
     const styleGame = {
         width: map[0].lenght,
@@ -20,14 +17,18 @@ const Game = ({map}) => {
                         result = <div className="wall" key={index}></div>;
                         break
                     case 0 :
-                        result = <div className="path" key={index}></div>;
+                        result = <div id="path" key={index}></div>;
                         break
-                    case "S":
-                        result = <div id="start" key={index}></div>;
+                    case 2:
+                        result = <div id="path" className="solution" key={index}></div>;
                         break
                     case "A":
+                        result = <div id="start" key={index}></div>;
+                        break
+                    case "B":
                         result = <div id="end" key={index}></div>;
                         break
+                    
                     default:
                         alert("Error during the generation of the labyrinth")
                         break
