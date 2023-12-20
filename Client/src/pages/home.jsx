@@ -16,6 +16,12 @@ const Home = () => {
                                  [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ]   ]})
     const [startGame, setstartGame] = useState(false);
     const [win,setWin] = useState(false);
+    const score = useRef({
+        index:{
+            score:0
+        }
+    });
+    const [displayScore,setDisplayScore] = useState(0)
     const playerCoo = useRef({index:{coo:Utils.GetStartCoo(map.current.map)}})
     const stylePlayer = useRef({
         index:{
@@ -34,11 +40,16 @@ const Home = () => {
             y:playerCoo.current.index.coo[0]*9+20,
             x:playerCoo.current.index.coo[1]*5+32
             }
+        score.current.index.score = 0
     }
 
     const generateLevel= () => {
         // TO DO
         // 
+    }
+
+    const saveScore = () =>{
+        
     }
 
     return (
@@ -47,7 +58,7 @@ const Home = () => {
             {
                 startGame?
                 <section id="game">
-                <Player coo={stylePlayer} map={map} playerCoo={playerCoo} setWin={setWin} setStartGame={setstartGame}></Player>
+                <Player coo={stylePlayer} map={map} playerCoo={playerCoo} setWin={setWin} setStartGame={setstartGame} score={score} setDisplayScore={setDisplayScore}></Player>
                 <Game map={map}/>
                 </section>:
                 <section id="start-window-home">
@@ -60,6 +71,7 @@ const Home = () => {
                                     resetData()
                                     setWin(false)
                                     setstartGame(true)
+                                    setDisplayScore(0)
                                 }}>
                                     Press to start a new level
                                 </button>
@@ -71,7 +83,8 @@ const Home = () => {
                     </div>
                 </section>
             }
-            <section>
+            <section id="bottom-container-home">
+                <span>score : {displayScore}</span>
             </section>
         </div>
     );
