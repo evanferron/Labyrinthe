@@ -34,7 +34,6 @@ exports.verifAccount = async (req, res) => {
     hashPassword("sha256", "base64", account.password)
   );
   if (user.length == 0) {
-    console.log(err);
     res.json({ exist: false });
     return;
   }

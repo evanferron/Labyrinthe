@@ -37,7 +37,9 @@ const Home = () => {
   useEffect(() => {
     initData();
   }, []);
-  const resetData = () => {
+  const resetData = async () => {
+    const maze = await generateMaze();
+    map.current = { map: maze };
     playerCoo.current.index = { coo: Utils.GetStartCoo(map.current.map) };
     stylePlayer.current.index = {
       top: `${playerCoo.current.index.coo[0] * 9 + 20}vh`,
@@ -46,6 +48,9 @@ const Home = () => {
       x: playerCoo.current.index.coo[1] * 5 + 32,
     };
     score.current.index.score = 0;
+    setWin(false);
+    setstartGame(true);
+    setDisplayScore(0);
   };
   const saveScore = () => {};
   return (
@@ -81,9 +86,6 @@ const Home = () => {
                 <button
                   onClick={() => {
                     resetData();
-                    setWin(false);
-                    setstartGame(true);
-                    setDisplayScore(0);
                   }}
                 >
                   Press to start a new level
