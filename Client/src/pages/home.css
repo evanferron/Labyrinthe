@@ -1,0 +1,48 @@
+#main-container-home{
+    display: grid;
+    grid-template-rows: 8rem 1fr 5rem;
+    width: 100vw;
+    height: 100vh;
+}
+
+#game{
+    border: red 3px solid;
+    width: fit-content;
+    height: fit-content;
+    align-self: center;
+    justify-self: center;
+    background-color: rgb(20,20,20);
+}
+
+#start-window-home{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#start-window-home div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#start-window-home div button{
+    font-size: 30px;
+}
+
+#button-show-solution{
+    position: absolute;
+    width: 10rem;
+    grid-row: 3;
+    height: 2rem;
+    border: none;
+    background-color: blue;
+    color: aliceblue;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#bottom-container-home{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,39 @@
+#header{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 3rem;
+    text-align: center;
+}
+
+#link-login-register{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+#img-logo-home{
+    background: url("../../assets/icon.png");
+    height: 7rem;
+    width: 7rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#title-header{
+    color: #F64139;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+}
+
+#title-header h1{
+    font-weight: 500;
+    margin-block-start: 0.8em;
+    margin-block-end: 0;
+    font-size: 2em;
+}
+
+#link-login-register a{
+    font-size: 1.5em;
+}
