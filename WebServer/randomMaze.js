@@ -247,9 +247,7 @@ function simplify(laby) {
     return maze
 }
 
-function RandomMaze() {
-    var laby = simplify(SetupIndex(backtrackingMaze(6)))
-    return laby
+exports.RandomMaze = () => {
+    return simplify(SetupIndex(backtrackingMaze(6)))
 }
 
-export default RandomMaze;
