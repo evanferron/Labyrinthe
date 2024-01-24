@@ -1,40 +1,7 @@
-let laby = [    [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1],
-                [ 1 , 0 ,"A", 1 , 0 , 0 , 0 , 0 , 0 , 1],
-                [ 1 , 0 , 0 , 1 , 0 , 1 , 0 , 1 , 0 , 1],
-                [ 1 , 0 , 1 , 1 , 1 , 1 , 0 , 1 , 0 , 1],
-                [ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1],
-                [ 1 , 1 , 0 , 1 , 1 , 0 , 1 , 0 , 1 , 1],
-                [ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 , 1],
-                [ 1 , 0 , 1 , 1 , 1 , 0 , 0 , 0 , 1 , 1],
-                [ 1 , 0 , 0 , 0 , 1 , 0 , 0 , 0 ,"B", 1],
-                [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1]      ]
-
-let laby2 = [   [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ],
-                [ 1 , 0 ,"A", 1 , 0 , 0 , 0 , 1 ],
-                [ 1 , 0 , 0 , 1 , 0 , 1 , 0 , 1 ],
-                [ 1 , 0 , 1 , 1 , 1 , 1 , 0 , 1 ],
-                [ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 1 ],
-                [ 1 , 1 , 0 , 1 , 1 , 0 , 1 , 1 ],
-                [ 1 , 0 , 0 , 0 ,"B", 0 , 0 , 1 ],
-                [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ]   ]
-
-let laby3 = [   [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ],
-                [ 1 , 1 ,"A", 0 , 0 , 0 , 1 , 0 , 0 , 0 , 1 ],
-                [ 1 , 1 , 1 , 1 , 1 , 0 , 0 , 0 , 1 ,"B", 1 ],
-                [ 1 , 0 , 1 , 0 , 1 , 0 , 1 , 1 , 0 , 0 , 1 ],
-                [ 1 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 1 ],
-                [ 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 , 1 ]
-                ]
-
 export const GetSolution = (maze,playerX,playerY)=>{
     return way(maze,Path(maze,playerX,playerY))
 }
 
-function display(laby) {
-    for (let i = 0; i < laby.length; i ++) {
-    }
-    
-}
 function way(laby,path) {
     for (let i = 0; i < laby.length; i++) {
         for (let f = 0; f < laby[i].length; f++) {
@@ -48,7 +15,7 @@ function way(laby,path) {
 function Path(laby,x,y){
     let path = []
     for (let i = 0; i < laby.length; i++) {
-        var ligne = []
+        let ligne = []
         for (let j = 0; j < laby[i].length; j++) {
             if (i != x || j != y){
                 ligne.push(1000)
