@@ -37,3 +37,16 @@
 #link-login-register a{
     font-size: 1.5em;
 }
+
+#logout-container{
+    display: flex;
+    gap: 3rem;
+    padding: 2rem;
+    justify-content: center;
+}
+
+#logout-container button{
+    align-self: center;
+    border-radius: 12px;
+    height: fit-content;
+}

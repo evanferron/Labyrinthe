@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import Utils from "../utils/utils";
 import { useNavigate } from "react-router";
@@ -22,6 +22,7 @@ const Register = () => {
         isValidUser(email, password, status);
       })
       .catch((e) => {
+        setInsertError(true);
         console.log(e);
       });
   };
@@ -34,7 +35,7 @@ const Register = () => {
     if (status[Object.keys(status)] != false) {
       Utils.SetCookie("isConnected", status[Object.keys(status)], 30);
       Utils.SetCookie("userId", user["data"]["userId"]);
-      Utils.SetCookie("userId", user["data"]["nickname"]);
+      Utils.SetCookie("userId", user["data"]["nickName"]);
       navigate("/");
     } else {
       navigate("/register");
@@ -48,10 +49,13 @@ const Register = () => {
     if (Utils.GetCookie("isConnected") == true) {
       navigate("/");
     }
-  }, []);
+  }, [navigate]);
   return (
     <div id="main-container-login-register">
-      <a href="/login">Login ➜</a>
+      <div id="link-container">
+        <a href="/login">Login ➜</a>
+        <a href="/">Home ➜</a>
+      </div>
       <form onSubmit={handleSubmit}>
         <h1>Register</h1>
         <label>

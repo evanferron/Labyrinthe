@@ -1,6 +1,50 @@
-#main-container-login-register{
+#root{
     width: 100vw;
     height: 100vh;
     display: flex;
+    justify-content: center;
+}
+
+
+#main-container-login-register{
+    align-self: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 3rem;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(70,70,70);
+    border-radius: 12px;
+}
+
+#main-container-login-register form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 30rem;
+}
+
+#main-container-login-register label{
+    display: flex;
+    justify-content: space-between;
+}
+
+#main-container-login-register h1{
+    align-self: center;
+}
+
+#main-container-login-register button{
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    width: 9rem;
+    align-self: center;
+}
+
+#link-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
 }

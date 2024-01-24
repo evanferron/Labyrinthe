@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import Header from "../components/Header/header";
 import Player from "../components/player/player";
 import Game from "../components/game/game";
@@ -27,7 +27,7 @@ const Home = () => {
     const maze = await generateMaze();
     map.current = { map: maze };
     playerCoo.current.index = { coo: Utils.GetStartCoo(map.current.map) };
-    stylePlayer.index = {
+    stylePlayer.current.index = {
       top: `${playerCoo.current.index.coo[0] * 9 + 20}vh`,
       left: `${playerCoo.current.index.coo[1] * 5 + 32}vw`,
       y: playerCoo.current.index.coo[0] * 9 + 20,
@@ -52,7 +52,6 @@ const Home = () => {
     setstartGame(true);
     setDisplayScore(0);
   };
-  const saveScore = () => {};
   return (
     <div id="main-container-home">
       <Header></Header>
@@ -68,14 +67,6 @@ const Home = () => {
             setDisplayScore={setDisplayScore}
           ></Player>
           <Game map={map} />
-          <button
-            onClick={() => {
-              setstartGame(false);
-              setWin(true);
-            }}
-          >
-            skip level
-          </button>
         </section>
       ) : (
         <section id="start-window-home">
