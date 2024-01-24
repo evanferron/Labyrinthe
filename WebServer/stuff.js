@@ -19,10 +19,12 @@ exports.addAccount = async (req, res) => {
   );
   if (err != null) {
     console.log(err);
-    res.json({ status: false });
+    res.json({ status: false, error: err });
     return;
   }
-  res.json({ status: true });
+  res.json({
+    status: true,
+  });
 };
 
 exports.verifAccount = async (req, res) => {

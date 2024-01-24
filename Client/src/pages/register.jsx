@@ -32,10 +32,11 @@ const Register = () => {
       email: email,
       password: password,
     });
-    if (status[Object.keys(status)] != false) {
-      Utils.SetCookie("isConnected", status[Object.keys(status)], 30);
+    console.log(status);
+    if (status.data.status) {
+      Utils.SetCookie("isConnected", status.data.status, 30);
       Utils.SetCookie("userId", user["data"]["userId"]);
-      Utils.SetCookie("userId", user["data"]["nickName"]);
+      Utils.SetCookie("nickname", user["data"]["nickName"]);
       navigate("/");
     } else {
       navigate("/register");
@@ -43,7 +44,8 @@ const Register = () => {
   }
   const postNewAccount = async (dataAccount) => {
     const data = await axios.post(url + "/accounts/add", dataAccount);
-    return data.data;
+    console.log(data);
+    return data;
   };
   useEffect(() => {
     if (Utils.GetCookie("isConnected") == true) {
