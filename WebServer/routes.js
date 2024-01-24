@@ -8,8 +8,9 @@ const stuffCtrl = require("./stuff");
 router.post("/accounts/add", stuffCtrl.addAccount);
 router.post("/accounts/isvalid", stuffCtrl.verifAccount);
 
-router.post("/mazes/create",stuffCtrl.addMaze)
-router.get("/mazes/generate",stuffCtrl.generateMaze)
+//Mazes
 
+router.post("/mazes/create", stuffCtrl.addMaze);
+router.get("/mazes/generate", stuffCtrl.generateMaze);
 
 module.exports = router;
